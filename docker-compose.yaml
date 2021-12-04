@@ -1,0 +1,16 @@
+version: '3'
+services:
+  game:
+    image: starbound-docker:latest
+    container_name: starbound
+    restart: always
+    environment:
+      - MODS=729480149,731354142
+    volumes:
+      - ./data/storage:/opt/storage
+      #Remove :ro (Read Only) makes these read only 
+      # - ./STEAM_TOKEN:/var/opt/steam_token:ro 
+      - ./STEAM_USERNAME:/var/opt/steam_user:ro 
+      - ./STEAM_PASSWORD:/var/opt/steam_pass:ro
+    ports:
+      - "21025:21025"

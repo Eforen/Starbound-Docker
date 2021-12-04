@@ -1,8 +1,8 @@
-STEAM_USER="$(cat /var/opt/steam_user)"
-STEAM_PASS="$(cat /var/opt/steam_pass)"
+#!/bin/bash
 
-. UpdateSB.sh
-. UpdateMods.sh
-. CleanOldMods.sh
-. LinkMods.sh
-. StartSB.sh
+. /opt/scripts/SetSteamAccount.sh
+. /opt/scripts/UpdateSB.sh
+. /opt/scripts/UpdateMods.sh
+. /opt/scripts/CleanOldMods.sh
+. /opt/scripts/LinkMods.sh
+. /opt/scripts/StartSB.sh
