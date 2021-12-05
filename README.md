@@ -1,15 +1,25 @@
 # Starbound-Docker
 Starbound Docker with Mods Support
 
-# Step One (If using SteamGuard or Don't want to expose your account)
+# WARNING: THIS DOCKER IMAGE IS NOT COMPLETE YET!
+This docker image currently does not support settings nor save data
 
-Because steam requires a username and password for downloading starbound we need to provide this how ever you may not want to use your main account eather because you don't like the idea of your password in plain text or that you don't want to disable SteamGuard
+# Manually Building the Image
 
-## Make Dedicated Server Token
+If you don't trust me and the images I build don't worry about it I rarely trust anyone my self.
+I will show you how I build the image so that you can download this repo and build it your self if you don't trust me or the public repositories
 
-1. Go to the [dedicated token management page](https://steamcommunity.com/dev/managegameservers)
-2. Login with your account that owns Starbound
-3. In the App ID of the base game field enter `211820`
-4. In the Memo field enter a nickname for your server for example `Starbound Docker Server`
-5. Click the `Create` button
-6. Copy down the token and place it in your password vault such as bitwarden, lastpass, keypass, etc... I recommend the name `Starbound Dedicated Server Steam Token`
+```shell
+# Make Steam Username File
+vim STEAM_USERNAME
+# Make Steam Password File (Must be plain text sorry dems da brakes complain to steam not me)
+vim STEAM_PASSWORD
+# Create blank SteamGuard Key file incase its needed (you need to change the docker-compose.yaml file if you don't want to do this and have SteamGuard disabled)
+touch STEAM_GUARD
+# Build the image and tag it correctly
+sudo docker build -t starbound-docker:latest .
+# Spin up server
+sudo docker-compose up
+```
+
+thats it... really...
